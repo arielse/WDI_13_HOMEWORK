@@ -2,13 +2,10 @@ var wordToGuess = ['f', 'i', 'r', 'e', 'b', 'o', 'l', 't'];
 var blankWord = ['_', '_', '_', '_', '_', '_', '_', '_'];
 var letterGuess = "";
 var wrongGuess = [];
-var numberOfGuesses = 3;
+var numberOfGuesses = 10;
 var guessesLeft = "";
 
-// window.addEventListener('keypress', function(e) {
-//   letterGuess = e.key;
-//   console.log(letterGuess);
-// })
+
 
 var guessingGame = function(letterGuess) {
   if (wordToGuess.includes(letterGuess)) {
@@ -29,6 +26,8 @@ var guessingGame = function(letterGuess) {
   console.log(wrongGuess);
 }
 
+
+
 // ----------------------
 // presentation functions
 // ----------------------
@@ -37,7 +36,7 @@ var blankWordPlace = document.querySelector('.word');
 var turnsLeftPlace = document.querySelector('.turns-left');
 var wrongGuessPlace = document.querySelector('.wrong-guess');
 
-guessingGame('a');
+// guessingGame('a');
 
 blankWord.forEach(function(letter) {
   var blankWordLetter = document.createElement('span');
@@ -48,7 +47,10 @@ blankWord.forEach(function(letter) {
 turnsLeftPlace.textContent = guessesLeft;
 
 
-
+window.addEventListener('keypress', function(e) {
+  letterGuess = e.key;
+  guessingGame(letterGuess);
+});
 
   //see if letterGuess corresponds to a letter in array
   // if no, print letter to top corner of screen
