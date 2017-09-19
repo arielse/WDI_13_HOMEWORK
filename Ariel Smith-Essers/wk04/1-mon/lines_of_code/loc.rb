@@ -1,4 +1,4 @@
-
+require 'pry'
 def get_num_lines
   puts "What file would you like to count?"
   # asks for file name, removes "enter" from end of input
