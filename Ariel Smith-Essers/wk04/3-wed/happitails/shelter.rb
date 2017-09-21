@@ -32,15 +32,20 @@ def add_clients(shelter)
   shelter[:clients].push(Client.new(name, age, kids))
 end
 
-def adopt_animals(shelter, animal, client)
-  puts "Name of client:"
-  client_index = client
+# def adopt_animals(shelter)
+  # puts "Name of client:"
+  # client_index = client
   # gets client name
   # displays all pets up for adoption
   # selects pet client wanted to adoption and puts into variable
   # deletes pet from shelter
   # adds pet into client pet array.
-end
+
+  # new_pet_index = gets.to_i
+  # new_pet = shelter[:animals][new_pet_index]
+  # @pets.push(new_pet)
+  # shelter[:animals].delete[new_pet_index]
+# end
 
 binding.pry
 puts "yay"

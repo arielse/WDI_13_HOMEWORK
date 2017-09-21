@@ -15,14 +15,14 @@ class Client
     new_pet_index = gets.to_i
     new_pet = shelter[:animals][new_pet_index]
     @pets.push(new_pet)
-    shelter[:animals].delete[new_pet_index]
+    shelter[:animals].delete(new_pet_index)
   end
   def give_pets(shelter)
     puts "Which pet do you want to give away?"
-    puts @pets.display_info
+    puts @pets
     give_pet_index = gets.to_i
     shelter[:animals].push(@pets[give_pet_index])
-    give_pet = @pets.delete[give_pet_index]
+    give_pet = @pets.delete(give_pet_index)
 
   end
 end
