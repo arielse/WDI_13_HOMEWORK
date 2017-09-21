@@ -10,4 +10,7 @@ class Animal
   def add_toys(new_toy)
     @toys.push(new_toy)
   end
+  def display_info
+    puts "Name: #{@name}, Age: #{@age}, Gender: #{@gender}, Species: #{@species}"
+  end
 end
