@@ -7,7 +7,8 @@ require "httparty"
 
 get '/' do
   @movie_title = params[:movie_title]
-  @result = HTTParty.get("http://omdbapi.com/?t=#{@movie_title}&apikey=#{ENV['OMDP_API_KEY']}")
+  @result = HTTParty.get("http://omdbapi.com/?s=#{@movie_title}&apikey=#{ENV['OMDP_API_KEY']}")
+
   erb :index
 end
 
@@ -23,5 +24,13 @@ get '/about' do
   @director = @movie["Director"]
   @actors = @movie["Actors"]
   @poster = @movie["Poster"]
+
   erb :about
+end
+
+get '/titles_list' do
+  @movie_title = params[:movie_title]
+  @result = HTTParty.get("http://omdbapi.com/?s=#{@movie_title}&apikey=#{ENV['OMDP_API_KEY']}")
+  @search = @result.parsed_response["Search"]
+  erb :titles_list
 end
