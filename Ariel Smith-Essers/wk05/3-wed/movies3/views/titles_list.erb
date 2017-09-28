@@ -1,0 +1,10 @@
+<section id="film-titles">
+  <h1>Film Titles</h1>
+
+  <ul>
+    <% @search.each do |title|%>
+    <li><a href="about?movie_title=<%=title["Title"]%>&button="><%= title["Title"] %></a></li>
+  <% end %>
+  </ul>
+  <a href="/" class="home-button">HOME</a>
+</section>
