@@ -8,3 +8,5 @@ CREATE TABLE movies (
   plot VARCHAR(2000),
   poster VARCHAR(200)
 );
+
+ALTER TABLE movies ADD COLUMN imdbid VARCHAR(200);
