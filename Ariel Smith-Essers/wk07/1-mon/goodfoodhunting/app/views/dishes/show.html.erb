@@ -1,8 +1,18 @@
 <h2><%= @dish.name %></h2>
 <img src="<%= @dish.image_url %>" alt="<%= @dish.name %>">
 <a href="/dishes/<%= @dish.id %>/edit">edit</a>
-<form action="/dishes/<%= @dish.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<%= form_tag "/dishes/#{@dish.id}", method: 'delete' do %>
   <button type="submit" name="button">Delete Dish</button>
-</form>
+<%end%>
+
+<% @comments.each do |comment| %>
+<p><%= comment.content %></p>
+<% end %>
+
+<%= form_tag '/comments', method: 'post' do %>
+  <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+  <label for="content">Comment</label>
+  <textarea name="content" rows="8" cols="80" placeholder="Add your comment here"></textarea>
+  <button type="submit" name="button">Post Comment</button>
+<%end%>
